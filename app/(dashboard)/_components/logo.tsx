@@ -7,7 +7,7 @@ export const Logo = ()=>{
         height={130}
         width={240}
         alt="logo"
-        className="rounded-2xl justify-center"
+        className="rounded-3xl justify-center p-4"
         />
     )
 }
