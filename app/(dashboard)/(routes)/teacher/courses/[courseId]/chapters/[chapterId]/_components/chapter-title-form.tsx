@@ -17,43 +17,37 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 
-
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Pencil } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-
-import { Textarea } from "@/components/ui/textarea";
-import { Course } from "@prisma/client";
-import { Combobox } from "@/components/ui/combobox";
 
 
 
-interface CategoryFormProps {
-    initialData: Course;
+interface ChapterTitleFormProps {
+    initialData: {
+        title: string;
+    };
     courseId: string;
-    options: {label: string; value:string;}[];
+    chapterId: string;
 };
 
 const formSchema = z.object({
-    categoryId: z.string().min(1),
-
+    title: z.string().min(1),
     });
-export const CategoryForm = ({
+
+
+export const ChapterTitleForm = ({
 initialData,
 courseId,
-options
-
-}: CategoryFormProps) => {
+chapterId,
+}: ChapterTitleFormProps) => {
     const [isEditing, setIsEditing] = useState(false);
 
     const form = useForm<z.infer<typeof formSchema>>({
        
         resolver: zodResolver(formSchema),
-        defaultValues: {
-            categoryId: initialData.categoryId || ""
-        },
+        defaultValues: initialData,
 
     });
  
@@ -65,8 +59,8 @@ options
 
     const onSubmit = async ( values: z.infer<typeof formSchema> ) => {
         try {
-            await axios.patch(`/api/courses/${courseId}`, values);
-            toast.success("Course updated");
+            await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
+            toast.success("Chapter updated");
             toggleEdit();
             router.refresh();
         } catch (error) {
@@ -75,29 +69,23 @@ options
         }
     }
 
-    const selectedOption = options.find((option) => option.value === initialData.categoryId);
-
-
     return(
         <div className="mt-6 border bg-purple-200 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
-                Course category
+                Chapter title
                 <Button onClick={toggleEdit} variant="logoColor">
                     {isEditing ? (
                         <>Cancel</>
                     ): (
                     <>
-                      <Pencil className="h-4 w-4 mr-2" />Edit category
+                      <Pencil className="h-4 w-4 mr-2" />Edit Title
                     </>
                     )}
                 </Button>
             </div>
             {!isEditing && (
-                <p className={cn(
-                    "text-sm mt-2",
-                    !initialData?.categoryId && "text-slate-500 italic"
-                )}>
-                    {selectedOption?.label || "No category"}
+                <p className="text-sm mt-2">
+                    {initialData.title}
                 </p>
             )}
             {isEditing && (
@@ -108,22 +96,16 @@ options
                         >
                         <FormField
                         control={form.control}
-                        name="categoryId"
+                        name="title"
                         render={({field})=>{
                             return (
                             <FormItem>
                                 <FormControl>
-                                    <Combobox 
-                                        options={...options}
-                                        onChange = ""
-                                        {...field}
-                                    />
-
-                                    {/* <Textarea 
+                                    <Input 
                                     disabled={isSubmitting}
-                                    placeholder="e.g. 'This course is about...'"
+                                    placeholder="e.g. 'Introduction to the course.'"
                                     {...field}
-                                    /> */}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

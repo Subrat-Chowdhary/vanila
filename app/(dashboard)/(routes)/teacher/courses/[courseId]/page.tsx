@@ -13,6 +13,7 @@ import { ImageForm } from "./_components/image-form";
 import { CategoryForm } from "./_components/category-form";
 import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attahment-form";
+import { ChaptersForm } from "./_components/chapters-form";
 
 const CourseIdPage = async ({
     params
@@ -26,8 +27,14 @@ const {userId} = auth();
     }
     
     const course = await db.course.findUnique({
-    where: {id: params.courseId},
+    where: {id: params.courseId, userId:userId},
     include: {
+        chapters: {
+            orderBy:{
+                position: "asc", 
+            }
+        },
+
         attachments: {
             orderBy:{
                 createdAt: "desc",
@@ -53,7 +60,8 @@ const {userId} = auth();
         course.description,
         course.imageUrl,
         course.price,
-        course.categoryId
+        course.categoryId,
+        course.chapters.some(chapter => chapter.isPublished),
     ];
     const totlaFields = requiredFields.length;
     const completedFields = requiredFields.filter(Boolean).length;
@@ -67,10 +75,10 @@ const {userId} = auth();
         <div className="p-6">
             <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-y-2">
-                    <h1 className="text-2xl font-medium text-purple-900">
+                    <h1 className="text-2xl font-medium text-[#5e6601]">
                         Course Setup
                     </h1>
-                    <span className="text-sm text-purple-900">
+                    <span className="text-sm text-[#5e6601]">
                         Complete all fields {completionText}
                     </span>
                 </div>
@@ -79,7 +87,7 @@ const {userId} = auth();
                 <div>
                     <div className="flex items-center gap-x-2">
                         <IconBadge icon={LayoutDashboard} />
-                        <h2 className="text-xl">
+                        <h2 className="text-xl text-[#5e6601]">
                             Customize Your Course
                         </h2>
                     </div>
@@ -112,12 +120,13 @@ const {userId} = auth();
                                 icon={ListChecks}
                             />
                             <h2 className="text-xl">
-                                Course chapter
+                                Course chapters
                             </h2>
                         </div>
-                        <div>
-                            TODO: CHAPTERS 
-                        </div>
+                    <ChaptersForm
+                        initialData = {course}
+                        courseId={course.id}
+                    />
                     </div>
                     <div>
                         <div className="flex items-center gap-x-2">
@@ -149,7 +158,6 @@ const {userId} = auth();
                     </div>
                 </div>
             </div>
-
         </div>
      );
 }

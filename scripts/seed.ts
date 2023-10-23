@@ -6,8 +6,8 @@ async function main() {
 try {
     await database.category.createMany({
         data: [
-            {name: "Entrepreneurship Development Program(EDP1)" },
-            {name: "Entrepreneurship Development Program(EDP2)" },
+            {name: "Entrepreneurship Development" },
+            {name: "Primary Education" },
         ]
     });
 

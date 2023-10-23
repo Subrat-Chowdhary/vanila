@@ -53,7 +53,7 @@ courseId
     }
 
     return(
-        <div className="mt-6 border bg-purple-200 rounded-md p-4">
+        <div className="mt-6 border rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
                 Course image
                 <Button onClick={toggleEdit} variant="logoColor">
@@ -80,7 +80,7 @@ courseId
             {!isEditing && (
                 !initialData.imageUrl ? (
                     <div className="flex items-center justify-center h-60 bg-purple-200 rounded-md">
-                        <ImageIcon className="h-10 w-10 text-purple-500" />
+                        <ImageIcon className="h-10 w-10 text-black" />
                     </div>
                 ): (
                     <div className="relative aspect-video mt-2 ">
