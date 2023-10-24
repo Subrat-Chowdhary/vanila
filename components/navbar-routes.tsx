@@ -28,7 +28,7 @@ export const NavbarRoutes = () => {
             ): (
                 <Link href="/teacher/courses">
                     <Button size="sm" variant="logoColor" className="bg-[#5e6601]-900">
-                        Teacher Mode
+                        Admin Mode
                     </Button>
                 </Link>
             )}
