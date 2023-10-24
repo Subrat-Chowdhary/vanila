@@ -20,15 +20,15 @@ export const NavbarRoutes = () => {
         <div className="flex gap-x-2 ml-auto">
             {isTeacherPage || isPlayerPage ?(
                 <Link href="/">
-                    <Button size="sm" variant="logoColor" className="bg-purple-100" >
+                    <Button size="sm" variant="logoColor" className="bg-[#5e6601]-900" >
                         <LogOut className="h-4 w-4 mr-2" />
                         Exit
                     </Button>
                 </Link>
             ): (
                 <Link href="/teacher/courses">
-                    <Button size="sm" variant="logoColor" className="bg-purple-100">
-                        Teacher Mode
+                    <Button size="sm" variant="logoColor" className="bg-[#5e6601]-900">
+                        Admin Mode
                     </Button>
                 </Link>
             )}

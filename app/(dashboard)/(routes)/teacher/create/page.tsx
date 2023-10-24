@@ -41,11 +41,9 @@ const CreatePage = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>)=>{
         try{
             const response = await axios.post("/api/courses", values);
-            console.log(response);
+            
             const idStr  = response.data.id;
             
-            console.log(idStr)
-
             router.push('/teacher/courses/'+idStr);
             toast.success("Course created");
             
@@ -57,10 +55,10 @@ const CreatePage = () => {
     return ( 
         <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
             <div>
-                <h1 className="text-2xl text-[#8c3c7c] ">
+                <h1 className="text-2xl text-[#5e6601] ">
                     Name your course
                 </h1>
-                <p className="text-sm text-[#8c3c7c]">
+                <p className="text-sm text-[#5e6601]">
                     What would you like to name your course? Don&apos;t worry, you can change this later. 
                 </p>
                 <Form {...form}>
@@ -75,7 +73,7 @@ const CreatePage = () => {
                                 field
                             })=> (
                                 <FormItem>
-                                    <FormLabel className="text-[#8c3c7c]">
+                                    <FormLabel className="text-[#5e6601]">
                                         Course Title
                                     </FormLabel>
                                     <FormControl>
@@ -85,7 +83,7 @@ const CreatePage = () => {
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormDescription className="text-[#8c3c7c]">
+                                    <FormDescription className="text-[#5e6601]">
                                         What will you teach in this Course?
                                     </FormDescription>
                                     <FormMessage/>

@@ -104,7 +104,7 @@ courseId
                                 <FormControl>
                                     <Input 
                                     disabled={isSubmitting}
-                                    placeholder="e.g. 'Advanced Web Development'"
+                                    placeholder="e.g. 'Advanced OpenAI Algorythm'"
                                     {...field}
                                     />
                                 </FormControl>
