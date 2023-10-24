@@ -1,6 +1,21 @@
-const SerachPage = () => {
+import { db } from "@/lib/db";
+import { Categories } from "./_components/categories";
+
+const SerachPage = async () => {
+
+    const categories = await db.category.findMany({
+        orderBy: {
+            name: "asc"
+        }
+    });
+
+
     return ( 
-        <div>This is a Search Page</div>
+        <div className="p-6">
+            <Categories
+                items={categories}            
+            />
+        </div>
      )
 }
  
