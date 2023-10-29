@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/mode-selector";
 import { Navbar } from "./_components/navbar";
 import { Sidebar } from "./_components/sidebar";
 

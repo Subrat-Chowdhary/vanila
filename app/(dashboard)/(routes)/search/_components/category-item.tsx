@@ -7,6 +7,9 @@ import { IconType } from "react-icons";
 import qs from "query-string";
 import { stringify } from "querystring";
 
+import Image from 'next/image';
+import CompSc from "@/public/icons/engineering.png"
+
 interface CategoryItemProps {
     label: string;
     value?: string;
@@ -45,12 +48,17 @@ export const CategoryItem = ({
         <button
         onClick={onClick}
             className={cn(
-                "flex bg-white border-4 items-center py-2 px-3 text-sm border-slate-200 rounded-full gap-x-1 hover:border-sky-700 transition",
-                isSelected && "border-sky-700 bg-sky-200/20 text-sky-800"
+                "flex bg-white text-gray-600 border-4 items-center py-2 px-3 text-sm border-slate-200 rounded-2xl gap-x-1 hover:border-sky-900 transition",
+                isSelected && "bg-green-700 text-white border-black"
             )}
             type="button"
         >
             {Icon && <Icon size={30} />}
+            {/* {<Image
+                src={CompSc}
+                alt="logo"
+                className="h-6 w-6"
+            />} */}
             <div className="truncate font-semibold">
                 {label}
             </div>

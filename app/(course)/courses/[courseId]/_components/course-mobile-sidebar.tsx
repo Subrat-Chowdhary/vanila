@@ -31,7 +31,6 @@ export const CourseMobileSidebar = ({
                 <CourseSidebar
                     course = {course}
                     progressCount={progressCount}
-
                 />
             </SheetContent>
         </Sheet>
