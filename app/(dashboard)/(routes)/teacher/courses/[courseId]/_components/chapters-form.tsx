@@ -94,7 +94,7 @@ export const ChaptersForm = ({
       )}
       <div className="font-medium flex items-center justify-between">
         Course chapters
-        <Button onClick={toggleCreating} variant="ghost">
+        <Button onClick={toggleCreating} variant="logoColor">
           {isCreating ? (
             <>Cancel</>
           ) : (

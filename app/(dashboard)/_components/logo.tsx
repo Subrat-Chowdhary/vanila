@@ -3,11 +3,11 @@ import Image from "next/image";
 export const Logo = ()=>{
     return (
         <Image
-        src="/vanila-high-resolution-logo-transparent.svg"
-        height={10}
-        width={162}
+        src="/vanila-high-resolution-logo.svg"
+        height={400}
+        width={400}
         alt="logo"
-        className="justify-center ml-10 p-2 mt-0"
-        />
+        className="justify-center shadow-slate-950 rounded-xl"
+       />
     )
 }
