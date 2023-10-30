@@ -26,7 +26,7 @@ export const NavbarRoutes = () => {
 
         <>
             {isSearchPage && (
-                <div className="hidden md:block">
+                <div className="hidden md:block dark:bg-black dark:text-white">
                     <SearchInput/>
                 </div>
             )}
