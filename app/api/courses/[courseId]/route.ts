@@ -28,6 +28,13 @@ export async function DELETE(
                 id: params.courseId,
                 userId: userId,
             },
+            include: {
+                chapters: {
+                    include: {
+                        muxData: true,
+                    }
+                }
+            }
         });
 
         if(!course) {
@@ -35,7 +42,7 @@ export async function DELETE(
         }
 
         for (const chapter of course.chapters){
-            if(chapter.muxData?.assetId){
+            if(chapter?.muxData?.assetId){
                 await Video.Assets.del(chapter.muxData?.assetId);
             }
         }
@@ -46,9 +53,7 @@ export async function DELETE(
                 id: params.courseId,
             }
         });
-
         return NextResponse.json(deletedCourse);
-
 
     } catch (error) {
         console.log("[COURSE_ID_DELETE]", error);
@@ -56,8 +61,6 @@ export async function DELETE(
     }
     
 }
-
-
 
 export async function PATCH(
     req: Request,
@@ -70,7 +73,7 @@ export async function PATCH(
         const values = await req.json();
 
         if(!userId){
-            return new NextResponse("Unauthorised", {status: 401});
+            return new NextResponse("Unauthorized", {status: 401});
         }
 
         const course = await db.course.update({
@@ -89,6 +92,6 @@ export async function PATCH(
         
     } catch (error) {
         console.log("[COURSE_ID]", error);
-        return new NextResponse("Internal Error",{ status: 500})
+        return new NextResponse("Internal Error",{ status: 500});
     }
 }
