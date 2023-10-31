@@ -2,12 +2,15 @@ import Image from "next/image";
 
 export const Logo = ()=>{
     return (
-        <Image
-        src="/vanila-high-resolution-logo.svg"
-        height={400}
-        width={400}
-        alt="logo"
-        className="justify-center shadow-slate-950 rounded-xl"
-       />
+        <div className="flex ml-1 text-2xl md:text-2xl lg:text-3xl text-red-400 font-extrabold">
+            First Copy
+        </div>
+    //     <Image
+    //     src="/vanila-high-resolution-logo.svg"
+    //     height={0}
+    //     width={0}
+    //     alt="logo"
+    //     className="justify-center shadow-slate-950 rounded-xl w-44 h-8"
+    //    />
     )
 }

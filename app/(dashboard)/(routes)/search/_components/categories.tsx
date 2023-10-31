@@ -2,16 +2,9 @@
 
 import { Category } from "@prisma/client";
 
-import {
+import { HiAcademicCap } from "react-icons/hi";
 
-    FcDiploma2,
 
-    FcElectronics,
-
-    FcSportsMode,
-    FcBusinessman,
-
-} from "react-icons/fc";
 import {IconType} from "react-icons";
 import { Record } from "@prisma/client/runtime/library";
 import { CategoryItem } from "./category-item";
@@ -22,16 +15,15 @@ interface CategoriesProps {
 }
 
 const iconMap: Record<Category["name"], IconType> = {
-"Technology": FcElectronics,
-"Health":FcSportsMode,
-"Learning & Development": FcBusinessman,
-"Education": FcDiploma2,
+"Arts": HiAcademicCap,
+"Science":HiAcademicCap,
+"Commerce": HiAcademicCap,
 }
 export const Categories = ({
     items,
 } : CategoriesProps) => {
     return (
-        <div className="flex items-center gap-x-2 flex-wrap pb-2 gap-y-4 justify-between">
+        <div className="flex items-center gap-x-2 flex-wrap pb-2 gap-y-4 justify-center">
             {items.map((item) => (
                 <CategoryItem
                     key={item.id}
