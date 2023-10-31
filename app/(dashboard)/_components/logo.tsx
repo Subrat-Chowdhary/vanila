@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export const Logo = ()=>{
     return (
-        <div className="flex ml-1 text-2xl md:text-2xl lg:text-3xl text-red-400 font-extrabold">
-            First Copy
+        <div className="flex ml-1 text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-50 font-extrabold">
+            Vanila-LMS
         </div>
     //     <Image
     //     src="/vanila-high-resolution-logo.svg"

@@ -33,21 +33,21 @@ export const SidebarItem = ({
     onClick={onClick}
     type="button"
     className={cn(
-        "flex items-center gap-x-2 text-slate-500 text-sm font-[500] pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20",
-        isActive && "text-sky-950 bd-sky-200/20 vover:bg-sky-200/20 hover:text-sky-900 shadow-2xl bg-sky-50"
+        "flex items-center gap-x-2 text-slate-800 text-sm font-[500] pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20",
+        isActive && "text-sky-950 bg-sky-200/20 hover:bg-sky-200/20 shadow-2xl dark:bg-purple-800"
     )}
     >
         <div className="flex items-center gap-x-2 py-4">
             <Icon 
             size={30}
             className={cn(
-                "text-sky-500",
+                "text-purple-900 dark:text-white",
                 isActive && "text-sky-950"
             )}
             />
             <p
                 className={cn(
-                "text-sky-500 text-lg",
+                "text-purple-900 dark:text-white text-lg",
                 isActive && "text-sky-950"
             )}
             >
@@ -56,7 +56,7 @@ export const SidebarItem = ({
         </div>
         <div
             className={cn(
-                "ml-auto opacity-0 border-2 border-sky-950 h-full transition",
+                "ml-auto opacity-0 border-2 border-sky-300 h-full transition",
                 isActive && "opacity-100"
             )}
         />

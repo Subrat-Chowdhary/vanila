@@ -84,10 +84,10 @@ const {userId} = auth();
             <div className="p-6">
                 <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-y-2">
-                        <h1 className="text-2xl font-medium text-sky-900">
+                        <h1 className="text-2xl font-medium text-sky-900 dark:text-white">
                             Course Setup
                         </h1>
-                        <span className="text-sm text-sky-900">
+                        <span className="text-sm text-sky-900 dark:text-white">
                             Complete all fields {completionText}
                         </span>
                     </div>
@@ -101,7 +101,7 @@ const {userId} = auth();
                     <div>
                         <div className="flex items-center gap-x-2">
                             <IconBadge icon={LayoutDashboard} />
-                            <h2 className="text-xl text-sky-900">
+                            <h2 className="text-xl text-sky-900 dark:text-white">
                                 Customize Your Course
                             </h2>
                         </div>
@@ -133,7 +133,7 @@ const {userId} = auth();
                                 <IconBadge 
                                     icon={ListChecks}
                                 />
-                                <h2 className="text-xl text-sky-900">
+                                <h2 className="text-xl text-sky-900 dark:text-white">
                                     Course chapters
                                 </h2>
                             </div>
@@ -147,7 +147,7 @@ const {userId} = auth();
                                 <IconBadge 
                                     icon={IndianRupeeIcon}
                                 />
-                                <h2 className="text-xl text-sky-900">
+                                <h2 className="text-xl text-sky-900 dark:text-white">
                                     Sell your course
                                 </h2>
                             </div>
@@ -161,7 +161,7 @@ const {userId} = auth();
                                 <IconBadge 
                                     icon={File}
                                 />
-                                <h2 className="text-xl text-sky-950">
+                                <h2 className="text-xl text-sky-950 dark:text-white">
                                     Resources & Attachments
                                 </h2>
                             </div>

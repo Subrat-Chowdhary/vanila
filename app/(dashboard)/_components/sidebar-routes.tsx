@@ -40,7 +40,7 @@ export const SidebarRoutes = ()=>{
 
     
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full hover:normal-case">
             {routes.map((route) => (
                 <SidebarItem
                 key={route.href}

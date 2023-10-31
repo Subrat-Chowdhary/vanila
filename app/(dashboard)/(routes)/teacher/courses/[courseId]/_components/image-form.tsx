@@ -53,8 +53,8 @@ courseId
     }
 
     return(
-        <div className="mt-6 border rounded-md p-4">
-            <div className="font-medium flex items-center justify-between">
+        <div className="mt-6 border rounded-md p-4 dark:bg-purple-900 dark:text-white rounded-md p-4">
+            <div className="font-medium flex items-center justify-between ">
                 Course image
                 <Button onClick={toggleEdit} variant="logoColor">
                     {isEditing && (
