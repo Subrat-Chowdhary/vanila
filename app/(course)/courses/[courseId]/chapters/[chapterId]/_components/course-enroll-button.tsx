@@ -24,6 +24,7 @@ export const CourseEnrolledButton = ({
             setIsLoading(true);
 
             const response = await axios.post(`/api/courses/${courseId}/checkout`)
+            console.log(response)
 
             window.location.assign(response.data.url);
             

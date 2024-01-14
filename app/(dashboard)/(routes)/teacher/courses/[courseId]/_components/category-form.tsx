@@ -114,16 +114,9 @@ options
                             <FormItem>
                                 <FormControl>
                                     <Combobox 
-                                        options={...options}
-                                        onChange = ""
+                                        options={options}
                                         {...field}
                                     />
-
-                                    {/* <Textarea 
-                                    disabled={isSubmitting}
-                                    placeholder="e.g. 'This course is about...'"
-                                    {...field}
-                                    /> */}
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

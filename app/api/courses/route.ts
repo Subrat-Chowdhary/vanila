@@ -6,6 +6,7 @@ export async function POST(
     req: Request,
 ) {
     try{
+        //const userId = "user_2XUbksM8EcMn9i3RjjJ5vAHvqPQ";
         const {userId} = auth();
         const {title} = await req.json();
 

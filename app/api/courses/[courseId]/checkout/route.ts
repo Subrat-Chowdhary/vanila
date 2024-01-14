@@ -37,9 +37,8 @@ export async function POST(
         }
 
         if (!course){
-            return new NextResponse("Not found", {status: 404});
+            return new NextResponse("Not found", {status: 404})
         }
-
         const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
             {
                 quantity:1,
