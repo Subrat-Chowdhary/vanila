@@ -54,11 +54,11 @@ const CreatePage = () => {
 
     return ( 
         <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
-            <div>
-                <h1 className="text-2xl text-sky-950 ">
+            <div className=" dark:bg-slate-950 dark:text-white">
+                <h1 className="text-2xl">
                     Name your course
                 </h1>
-                <p className="text-sm text-sky-950">
+                <p className="text-sm">
                     What would you like to name your course? Don&apos;t worry, you can change this later. 
                 </p>
                 <Form {...form}>
@@ -73,7 +73,7 @@ const CreatePage = () => {
                                 field
                             })=> (
                                 <FormItem>
-                                    <FormLabel className="text-sky-950">
+                                    <FormLabel className="">
                                         Course Title
                                     </FormLabel>
                                     <FormControl>
@@ -83,7 +83,7 @@ const CreatePage = () => {
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormDescription className="text-sky-950">
+                                    <FormDescription>
                                         What will you teach in this Course?
                                     </FormDescription>
                                     <FormMessage/>
@@ -92,13 +92,13 @@ const CreatePage = () => {
                         />
                         <div className="flex items-center gap-x-2">
                             <Link href="/">
-                                <Button variant="logoColor" className="bg-purple-200">Cancel</Button>
+                                <Button variant="logoColor" className="bg-purple-200 dark:bg-white dark:text-slate-950">Cancel</Button>
                             </Link>
                                 <Button 
                                     type="submit"
                                     disabled={!isValid || isSubmitting}
                                     variant="logoColor"
-                                    className="bg-purple-200"
+                                    className="bg-purple-200 dark:bg-white dark:text-slate-950"
                                 >
                                     Continue
                                 </Button>

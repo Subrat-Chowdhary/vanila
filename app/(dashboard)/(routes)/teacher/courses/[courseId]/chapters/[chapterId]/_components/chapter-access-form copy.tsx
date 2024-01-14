@@ -78,7 +78,7 @@ chapterId,
     }
 
     return(
-        <div className="mt-4 border bg-purple-200 rounded-md p-4">
+        <div className="mt-4 border bg-purple-200 dark:bg-purple-900 dark:text-white rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
                 Chapter access
                 <Button onClick={toggleEdit} variant="logoColor">
