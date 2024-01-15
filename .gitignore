@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/.next
+*.log
+.DS_Store
 
 # testing
 /coverage
