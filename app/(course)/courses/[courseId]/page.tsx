@@ -1,6 +1,11 @@
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
+// added user type
+type User = {
+  id: string
+}
+
 const CourseIdPage = async ({
     params
 }: {
@@ -25,6 +30,24 @@ const CourseIdPage = async ({
 
     if(!course){
         return redirect("/");
+    }
+
+     // Check if course is completed
+    if(course.completed) {
+        
+        // Create certification record 
+        // Added this
+        const user = await db.certification.create({
+        data: {
+            userId: user.id,
+            courseId: params.courseId,
+            issuedDate: new Date()  
+        }
+        })
+
+        // Redirect to certification page
+        // Added this 
+        return redirect('/certification')
     }
 
     return ( 
